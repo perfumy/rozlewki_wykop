@@ -1,45 +1,16 @@
 {% extends "layout.html" %}
 
-<style>
-.table
-{
-	display:table;
-	border-collapse:separate;
-	border-spacing:2px;
-}
-.thead
-{
-	display:table-header-group;
-	color:white;
-	font-weight:bold;
-	background-color:grey;
-}
-.tbody
-{
-	display:table-row-group;
-}
-.tr
-{
-	display:table-row;
-}
-.td
-{
-	display:table-cell;
-	border:1px solid black;
-	padding:1px;
-}
-</style>
-
 {% block body %}
 
-  <h2>Dodaj wpis</h2>
+<h2>Dodaj wpis</h2>
   
-
 <div class="table">
 	<div class="thead">
 		<div class="tr">
 			<div class="td">Perfumy</div>
 			<div class="td">Sztuk</div>
+			<div class="td">Pojemność</div>
+			<div class="td">Cena</div>
 			<div class="td">Atomizer?</div>
 			<div class="td">Miasto</div>
 			<div class="td">Nick</div>
@@ -51,6 +22,8 @@
 		<form  class="tr" action="{{ url_for('wpis') }}" method="post">
 			<div class="td"><input id="perfum" type="text" name="perfum" placeholder="dior, aqua di gio..." required /></div>
 			<div class="td"><input id="ilosc" type="number" name="ilosc" placeholder="1" required /></div>
+			<div class="td"><input id="pojemnosc" type="number" name="pojemnosc" placeholder="10"  /></div>
+			<div class="td"><input id="cena" type="number" name="cena" placeholder="3.0"  /></div>
 			<div class="td"><input id="atomizer" type="checkbox" name="atomizer" /></div>
 			<div class="td"><input id="miasto" type="text" name="miasto" placeholder="opcjonalnie, ew tylko 'wysyłka'..." /></div>
 			<div class="td"><input id="nick" type="text" name="nick" placeholder="do kogo pisac na wykopie" required /></div>
@@ -58,8 +31,8 @@
 			<div class="td"><input id="klucz" type="text" name="klucz" placeholder="zapisz mnie" required /></div>
 			<div class="td action"><button type="submit">dodaj</button></div><!-- onclick="edit(this); -->
     		</form>
+        </div>
   </div>
-</div>
     
   <h2>Usuń wpis:</h2>
   <form action="{{ url_for('delete') }}" method="post">
@@ -90,6 +63,8 @@
       <td> {{ w.id }} </td>
       <td> {{ w.perfum }} </td>
       <td> {{ w.ilosc }} </td>
+      <td> {{ w.pojemnosc }} </td>
+      <td> {{ w.cena }} </td>
       <td> {{ w.atomizer }} </td>
       <td> {{ w.miasto }} </td>
       <td> <a href="https://www.wykop.pl/ludzie/{{ w.nick }}">{{ w.nick }}</a></td></tr> 
