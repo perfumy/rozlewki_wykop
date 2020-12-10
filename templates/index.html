@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+  <h2>Dodaj wpis</h2>
+  <form action="{{ url_for('wpis') }}" method="post">
+
+    <label for="perfum">Perfum</label>
+    <input id="perfum" type="text" name="perfum" placeholder="dior, aqua di gio..." required />
+    <label for="ilosc">Sztuk</label>
+    <input id="ilosc" type="number" name="ilosc" placeholder="1" required />
+    <label for="atomizer">atomizer</label>
+    <input id="atomizer" type="checkbox" name="atomizer" />
+    <label for="miasto">Miasto</label>
+    <input id="miasto" type="text" name="miasto" placeholder="opcjonalnie, ew tylko 'wysyłka'..." />
+    <label for="nick">Nick</label>
+    <input id="nick" type="text" name="nick" placeholder="do kogo pisac na wykopie" required />
+    <label for="kupie">Chce kupic</label>
+    <input id="kupie" type="checkbox" name="kupie" />
+    
+    <label for="klucz">klucz do usuniecia</label>
+    <input id="klucz" type="text" name="klucz" placeholder="zapisz mnie" required />
+    <button type="submit">dodaj</button>
+    
+  </form>
+
+  <h2>Usuń wpis:</h2>
+  <form action="{{ url_for('delete') }}" method="post">
+    
+    <label for="number">numer wpisu</label>
+    <input id="number" type="number" name="number" placeholder="1" required />
+    <label for="klucz">klucz do usuwania</label>
+    <input id="klucz" type="text" name="klucz" placeholder="" />
+    <button type="submit">usun</button>
+    
+  </form>
+
+  <h2>Wpisy rozlewek/zapotrzebowań:</h2>
+  <table id=perfumy>
+  <tr>
+    <th width="5%">numer</th>
+    <th>perfum</th>
+    <th>ilosc</th>
+    <th>atomizer</th>
+    <th>miasto</th>
+    <th>nick</th>
+  {% for w in wpisy %}
+   {% if w.kupie is true %}
+    <tr class="buying">
+   {% else %}
+    <tr class="selling">
+   {% endif %}
+    <td> {{ w.id }} </td><td> {{ w.perfum }} </td><td> {{ w.ilosc }} </td><td> {{ w.atomizer }} </td><td> {{ w.miasto }} </td><td> {{ w.nick }} </td></tr> 
+  {% else %}
+    <tr><td colspan=6> Brak wpisow. </td></tr>
+  {% endfor %}
+   </table>
+
+{% endblock %}

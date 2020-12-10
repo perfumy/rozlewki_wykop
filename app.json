@@ -1,0 +1,15 @@
+{
+  "name": "Szybka apka do wymiany rozlewkami perfum",
+  "description": "Simple excel like list to used to exchange parfums on wykop",
+  "keywords": [
+    "flask",
+    "python"
+  ],
+  "repository": "http://github.com/perfumy/rozlewki_wykop",
+  "scripts": {
+    "postdeploy": "python -c 'from app import db; db.create_all()'"
+  },
+  "addons": [
+    "heroku-postgresql"
+  ]
+}
