@@ -39,7 +39,7 @@ body {
 }
 
 input[type=number], select {
-  width: 10%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -49,7 +49,7 @@ input[type=number], select {
 }
 
 input[type=text], select {
-  width: 10%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -59,7 +59,7 @@ input[type=text], select {
 }
 
 input[type=submit] {
-  width: 10%;
+  width: 100%;
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
@@ -71,7 +71,7 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #45a049;
-  width: 10%;
+  width: 100%;
 }
 
 
