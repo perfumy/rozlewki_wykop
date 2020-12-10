@@ -34,7 +34,7 @@
 
   <h2>Dodaj wpis</h2>
   
-<form action="{{ url_for('wpis') }}" method="post">
+
 <div class="table">
 	<div class="thead">
 		<div class="tr">
@@ -48,7 +48,7 @@
 		</div>
 	</div>
 	<div class="tbody">
-		<form class="tr">
+		<form  class="tr" action="{{ url_for('wpis') }}" method="post">
 			<div class="td"><input id="perfum" type="text" name="perfum" placeholder="dior, aqua di gio..." required /></div>
 			<div class="td"><input id="ilosc" type="number" name="ilosc" placeholder="1" required /></div>
 			<div class="td"><input id="atomizer" type="checkbox" name="atomizer" /></div>
@@ -57,7 +57,7 @@
 			<div class="td"><input id="kupie" type="checkbox" name="kupie" /></div>
 			<div class="td"><input id="klucz" type="text" name="klucz" placeholder="zapisz mnie" required /></div>
 			<div class="td action"><button type="submit">dodaj</button></div><!-- onclick="edit(this); -->
-    </form>
+    		</form>
   </div>
 </div>
     
